@@ -1,0 +1,56 @@
+
+<title>NBA Stats Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        input[type="submit"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        p {
+            margin-bottom: 5px;
+        }
+    </style>
+<body>
+<h2>Search for a Basketball Player</h2>
+<form action="/" method="post">
+    <input type="text" name="player_name" placeholder="Enter player name">
+    <input type="submit" value="Search">
+</form>
+
+{% if player_info %}
+<h2>Player Information</h2>
+<img src="{{ player_info[9] }}" alt="Player Image" style="width: 200px; height: 200px;">
+<p>Player Name: {{ player_info[8] }}</p>
+<p>Games Played: {{ player_info[0] }}</p>
+<p>Points Per Game: {{ player_info[1] }}</p>
+<p>Rebounds Per Game: {{ player_info[2] }}</p>
+<p>Assists Per Game: {{ player_info[7] }}</p>
+<p>Field Goal Percentage: {{ player_info[4] }}</p>
+<p>3 Point Field Goal Percentage: {{ player_info[5] }}</p>
+<p>Free Throw Percentage: {{ player_info[6] }}</p>
+<p>Effective Field Goal Percentage: {{ player_info[7] }}</p>
+{% endif %}
+
+</body>
