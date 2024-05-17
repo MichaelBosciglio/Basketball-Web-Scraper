@@ -1,4 +1,4 @@
-# Basketball Web Scraper
+# Basketball Web Scraper (Work in Progress)
 
 This project is a web application built with Flask that allows users to search for basketball players and retrieve their career statistics. It scrapes data from the website [Basketball Reference](https://www.basketball-reference.com/).
 
