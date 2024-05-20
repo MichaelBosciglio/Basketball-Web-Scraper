@@ -1,56 +1,38 @@
-
-<title>NBA Stats Search</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-        h2 {
-            color: #333;
-        }
-        form {
-            margin-bottom: 20px;
-        }
-        input[type="text"],
-        input[type="submit"] {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-        p {
-            margin-bottom: 5px;
-        }
-    </style>
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
 <body>
-<h2>Search for a Basketball Player</h2>
-<form action="/" method="post">
-    <input type="text" name="player_name" placeholder="Enter player name">
-    <input type="submit" value="Search">
-</form>
-
-{% if player_info %}
-<h2>Player Information</h2>
-<img src="{{ player_info[9] }}" alt="Player Image" style="width: 200px; height: 200px;">
-<p>Player Name: {{ player_info[8] }}</p>
-<p>Games Played: {{ player_info[0] }}</p>
-<p>Points Per Game: {{ player_info[1] }}</p>
-<p>Rebounds Per Game: {{ player_info[2] }}</p>
-<p>Assists Per Game: {{ player_info[7] }}</p>
-<p>Field Goal Percentage: {{ player_info[4] }}</p>
-<p>3 Point Field Goal Percentage: {{ player_info[5] }}</p>
-<p>Free Throw Percentage: {{ player_info[6] }}</p>
-<p>Effective Field Goal Percentage: {{ player_info[7] }}</p>
-{% endif %}
-
+    <div class="flex flex-col justify-center items-center text-2xl max-w-full max-h-full">
+        <h2 class="text-3xl my-5">Search for a Basketball Player</h2>
+        <form action="/" method="post">
+            <input type="text" name="player_name" placeholder="Enter player name">
+            <input type="submit" value="Search">
+        </form>
+        
+        {% if player_info %}
+        {% if player_info[10] == True %}
+            <h2 class="mt-5 text-red-500">Player not found, here is Kwame Brown instead</h2>
+        {% endif %}
+            <h2 class="my-5">Player Information</h2>
+            <img src="{{ player_info[9] }}" alt="Player Image" class="w-60 h-60 mb-5 border-black">
+            <p>Player Name: {{ player_info[8] }}</p>
+            <p>Games Played: {{ player_info[0] }}</p>
+            <p>Points Per Game: {{ player_info[1] }}</p>
+            <p>Rebounds Per Game: {{ player_info[2] }}</p>
+            <p>Assists Per Game: {{ player_info[3] }}</p>
+            <p>Field Goal Percentage: {{ player_info[4] }}</p>
+            <p>3 Point Field Goal Percentage: {{ player_info[5] }}</p>
+            <p>Free Throw Percentage: {{ player_info[6] }}</p>
+            <p>Effective Field Goal Percentage: {{ player_info[7] }}</p>
+        {% endif %}
+    </div>
 </body>
+</html>
+
+
+
