@@ -13,7 +13,7 @@ This project is a web application built with Flask that allows users to search f
 - Flask
 - BeautifulSoup
 - HTML
-- CSS
+- TailwindCSS
 
 ## Usage (Windows)
 
