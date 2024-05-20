@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <title>Basketball Player Search</title>
 </head>
-<body>
-    <div class="flex flex-col justify-center items-center text-2xl max-w-full max-h-full">
-        <h2 class="text-3xl my-5">Search for a Basketball Player</h2>
+<body class="bg-gray-100">
+    <div class="flex flex-col justify-center items-center text-2xl max-w-full max-h-full py-10">
+        <h2 class="text-3xl my-5 font-bold">Search for a Basketball Player</h2>
         <form action="/" method="post">
-            <input type="text" name="player_name" placeholder="Enter player name">
-            <input type="submit" value="Search">
+            <div class="mb-4">
+                <input type="text" name="player_name" placeholder="Enter player name" class="px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring focus:border-blue-300">
+                <input type="submit" value="Search" class="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline border border-black">
+            </div>
         </form>
-        
+
         {% if player_info %}
         {% if player_info[10] == True %}
-            <h2 class="mt-5 text-red-500">Player not found, here is Kwame Brown instead</h2>
+            <h2 class=" text-red-500 mb-3">Player not found, here is Kwame Brown instead</h2>
         {% endif %}
-            <h2 class="my-5">Player Information</h2>
-            <img src="{{ player_info[9] }}" alt="Player Image" class="w-60 h-60 mb-5 border-black">
-            <p>Player Name: {{ player_info[8] }}</p>
+        <div class="flex flex-col items-center justify-center bg-white p-5 w-full max-w-md">
+            <h2 class="mb-5 font-semibold text-center">Player Information</h2>
+            <div class="flex justify-center">
+                <img src="{{ player_info[9] }}" alt="Player Image" class="w-60 h-60 mb-5 border border-gray-500">
+            </div>
+            <p class="font-semibold text-center">{{ player_info[8] }}</p>
             <p>Games Played: {{ player_info[0] }}</p>
             <p>Points Per Game: {{ player_info[1] }}</p>
             <p>Rebounds Per Game: {{ player_info[2] }}</p>
@@ -29,10 +35,8 @@
             <p>3 Point Field Goal Percentage: {{ player_info[5] }}</p>
             <p>Free Throw Percentage: {{ player_info[6] }}</p>
             <p>Effective Field Goal Percentage: {{ player_info[7] }}</p>
+        </div>
         {% endif %}
     </div>
 </body>
 </html>
-
-
-
